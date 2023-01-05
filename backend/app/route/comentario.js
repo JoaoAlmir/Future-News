@@ -1,4 +1,5 @@
 const controller = require("../controller/comentario");
+const auth_controller = require("../controller/auth");
 
 module.exports = function(app){
     //obter todos os comentarios
@@ -6,6 +7,9 @@ module.exports = function(app){
 
     //obter o comentario pelo id
     app.get("/comentarios/:id", controller.obterComentario);
+
+    // checar se o token é valido
+    app.use("/comentarios", auth_controller.checar_token);
 
     //criar novo comentario
     app.post("/comentarios", controller.inserirComentario);
