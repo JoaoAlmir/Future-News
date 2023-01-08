@@ -7,15 +7,15 @@
 
 
 .titulo{
-    margin-left: 42vw;
+    margin-left: 34vw;
     
 }
 
-.texto-titulo{
+.titulo .texto-titulo{
     user-select: none;
 }
 
-.luz-titulo {
+.titulo .luz-titulo {
     margin-left: 1vw;
     width: 11.5vw;
     height: 0px;
@@ -24,11 +24,14 @@
     0 0 2vh 1vw rgba(30, 255, 0, 0.068),  /* inner white */
     0 0 4vh 2vw rgba(0, 255, 64, 0.089), /* middle magenta */
     0 0 6vh 4vw rgba(0, 47, 255, 0.096); /* outer cyan */
-  }
+}
+
+
 
 
 .login{
     display: none;
+    user-select: none;
 }
 
 .login.active{
@@ -39,6 +42,7 @@
 
 .cadastro{
     display: none;
+    user-select: none;
 }
 
 .cadastro.active{

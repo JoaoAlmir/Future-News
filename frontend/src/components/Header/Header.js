@@ -18,18 +18,21 @@ export function Header() {
     return (
         <>
 
-            <div className="login active">login</div>
-            <div className="cadastro active">cadastro</div>
-            <div className="conta">User</div>
-            <div className="sair">sair</div>
+
 
 
             <div className="container-top">
+
+                <div className="login active">login</div>
+                <div className="cadastro active">cadastro</div>
+                <div className="conta">User</div>
+                <div className="sair">sair</div>
 
                 <div className="titulo">
                     <div className="texto-titulo">{titulo}</div>
                     <div className="luz-titulo"></div>
                 </div>
+
 
             </div>
         </>

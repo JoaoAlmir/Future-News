@@ -1,0 +1,38 @@
+.card{
+    padding: 4vh;
+    text-align: center;
+    width: 30vw;
+    border-style: solid;    
+    border-width: 0.1vh;
+    border-color: rgb(8, 230, 8);
+    margin: auto;
+    margin-top: 7vh;
+    font-size: 2vh;
+    user-select: none;
+    border-radius: 3vh;
+}
+
+.delete{
+    display: none;
+    transform: translate(30vw, -3vh);
+    position: absolute;
+    user-select: none;  
+}
+
+
+
+.delete.active{
+    display: block;
+}
+
+.luz-noticia{
+    margin-left: 1vw;
+    width: 30vw;
+    height: 0px;
+    border-radius: 50%;
+    box-shadow:
+    0 0 2vh 1vw rgba(30, 255, 0, 0.068),  /* inner white */
+    0 0 4vh 2vw rgba(0, 255, 64, 0.089), /* middle magenta */
+    0 0 6vh 4vw rgba(0, 47, 255, 0.096); /* outer cyan */  
+    margin: auto;
+}
