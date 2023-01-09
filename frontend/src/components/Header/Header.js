@@ -1,5 +1,6 @@
 import "./Header.css"
 import { useState } from "react"
+import { NavLink } from "react-router-dom";
 
 
 export function Header() {
@@ -23,13 +24,14 @@ export function Header() {
 
             <div className="container-top">
 
-                <div className="login active">login</div>
-                <div className="cadastro active">cadastro</div>
+                <NavLink className="login on" end to="/login">Login</NavLink>
+                <NavLink className="cadastro on" end to="/cadastro">Cadastro</NavLink>
                 <div className="conta">User</div>
                 <div className="sair">sair</div>
 
+                
                 <div className="titulo">
-                    <div className="texto-titulo">{titulo}</div>
+                    <NavLink className="texto-titulo" end to="/">{titulo}</NavLink>
                     <div className="luz-titulo"></div>
                 </div>
 

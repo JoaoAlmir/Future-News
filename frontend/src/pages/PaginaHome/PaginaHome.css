@@ -1,22 +1,14 @@
-*{
-    padding: 0;
-    margin: 0;
-    background-color: black;
-    color: rgb(10, 240, 2);
-    cursor: none;
-    
-    /*esconder o scroll */
-    
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+
+.luz-noticia{
+    margin-left: 1vw;
+    width: 30vw;
+    height: 0px;
+    border-radius: 50%;
+    box-shadow:
+    0 0 2vh 1vw rgba(30, 255, 0, 0.068),  /* inner white */
+    0 0 4vh 2vw rgba(0, 255, 64, 0.089), /* middle magenta */
+    0 0 6vh 4vw rgba(0, 47, 255, 0.096); /* outer cyan */  
+    margin: auto;
 }
-
-
-/* esconder o scroll */
-*::-webkit-scrollbar{
-    display: none;
-}
-
-
 
 

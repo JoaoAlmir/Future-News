@@ -1,17 +1,4 @@
-/* .cursor{
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
-    border: 5px solid rgb(0, 255, 42);
-    pointer-events: none;
-    overflow: hidden;
-    transform: translate3d(0,0,0);
-    position: fixed;
-    background-color: rgb(0, 0, 0);
-
-} */
-
-.cursor{
+#cursor{
     z-index: 1000;
     width: 2vh;
     height: 2.5 vh;

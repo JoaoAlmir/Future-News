@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: rgb(10, 240, 2);
+    cursor: none;
+    
+    /*esconder o scroll */
+    
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+
+
+
+/* esconder o scroll */
+*::-webkit-scrollbar{
+    display: none; /* Chrome */
+}
+
+a{
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+}
