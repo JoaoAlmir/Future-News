@@ -27,7 +27,7 @@ export function Header() {
                 <NavLink className="login on" end to="/login">Login</NavLink>
                 <NavLink className="cadastro on" end to="/cadastro">Cadastro</NavLink>
                 <div className="conta">User</div>
-                <div className="sair">sair</div>
+                <div className="sair">Sair</div>
 
                 
                 <div className="titulo">
