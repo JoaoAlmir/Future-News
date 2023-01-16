@@ -1,4 +1,4 @@
-.input-login{
+.input-titulo{
 
     border: none;
     border-bottom: 2px solid rgb(24, 173, 31);
@@ -13,12 +13,37 @@
     
 }
 
-.input-login:focus {
+.input-titulo:focus {
     border: 2px solid rgb(9, 245, 29);
     outline: none;
-  }
+}
 
-.submit-login{
+.input-conteudo{
+
+    border: none;
+    border-bottom: 2px solid rgb(24, 173, 31);
+    padding-left: 1vw;
+    font-size: 20px;
+    padding-top: 1vh;
+    margin:auto;
+    display: block;
+    margin-top: 8vh;
+    width: 30vw;
+    height: 20vh;
+    resize: none;
+
+
+    
+}
+
+.input-conteudo:focus {
+    border: 2px solid rgb(9, 245, 29);
+    outline: none;
+}
+
+
+
+.submit-criar{
 
     background-color: #00e913;
     border: none;
@@ -37,7 +62,7 @@
     
 }
 
-.submit-login:hover{
+.submit-criar:hover{
 
     background-color: #000000;
     color: white;
@@ -46,11 +71,15 @@
     
 }
 
-.submit-login:active{
+.submit-criar:active{
 
     background-color: #4d4d4d;
     color: rgb(255, 255, 255);
     border: 1px solid rgb(9, 245, 29);
 
     
+}
+
+.support-answer-textarea {
+    white-space: pre-wrap;
 }

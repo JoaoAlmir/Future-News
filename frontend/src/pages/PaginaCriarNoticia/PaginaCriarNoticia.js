@@ -2,9 +2,11 @@ import { Header } from "../../components/Header/Header";
 import { enviarNoticia } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import "./PaginaCriarNoticia.css"
 
 function Formulario() {
     const nav = useNavigate();
+
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
@@ -14,13 +16,15 @@ function Formulario() {
         }).catch((error)=>console.log(error))
     };
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input style={{"marginLeft":"35vw"}} {...register("titulo")} />
-            <input {...register("corpo")} />
-            <input type="submit" />
+        <form id="form-criar"  onSubmit={handleSubmit(onSubmit)} >
+            <input className="input-titulo" placeholder="título"{...register("titulo")} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault() }} />
+            <textarea className="input-conteudo" type="text" placeholder="conteúdo" {...register("conteudo")}></textarea>
+            <input className="submit-criar" value="Criar" type="submit"/>
         </form>
     )
 }
+
+
 
 export function PaginaCriarNoticia(){
     return(
