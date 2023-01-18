@@ -1,25 +1,20 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { enviarComentario } from "../../api/axios";
+import { useParams } from "react-router-dom";
+import { enviarComentario, verComentarios, verNoticia } from "../../api/axios";
+import { Comentario } from "../../components/Comentario/Comentario";
 import { Header } from "../../components/Header/Header";
 import "./PaginaNoticia.css"
 
-function Comentario(nome,coment){
-    return(
-        <div id="comentario">
-            <h3>{nome}</h3>
-            <br/>
-            <h4>{coment}</h4>
-        </div>
-    )
-}
+
 
 function Formulario() {
-    
+
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        enviarComentario(data.nome, data.conteudo).then((response)=>{
+        enviarComentario(data.nome, data.conteudo).then((response) => {
 
-        }).catch((error)=>console.log(error))
+        }).catch((error) => console.log(error))
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -30,20 +25,58 @@ function Formulario() {
 }
 
 export function PaginaNoticia() {
+
+    const [noticia, setNoticia] = useState([]);
+    const [comentario, setComentario] = useState([]);
+
+
+    let id = useParams().id;
+
+
+    useEffect(() => {
+
+
+        verNoticia(id).then(
+            (response) => {
+                setNoticia(response.data)
+            }
+        ).catch(
+            (error) => {
+                console.log(error);
+            }
+        )
+
+        // verComentarios(id).then(
+        //     (response) => {
+        //         setComentario(response.data)
+        //     }
+        // ).catch(
+        //     (error) => {
+        //         console.log(error);
+        //     }
+        // )
+
+    }, [id]);
+
+
+    
+    
+
+
     return (
         <>
             <Header />
             <div id="noticia">
 
-                <h1>Titulo awdapodawndp aowdn apwdoanwd poawdn apow n</h1>
-                <br/><br/>
-                <h3>bla bla bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</h3> 
-                
+                <h1>{noticia.titulo}</h1>
+                <br /><br />
+                <h3 className="quebra-linha" >{noticia.conteudo}</h3>
+
                 {Formulario()}
 
-                {Comentario("ronaldo","bla bla bla bla bla bla blabla lbal blab la blaalba lbalbal bal")}
-                
-            
+
+            {/* <Comentario titulo="pablo" conteudo="blabalblablalba balbalba" ></Comentario>                 */}
+
             </div>
 
             <div className="luz-ntc"></div>
