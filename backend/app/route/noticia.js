@@ -9,7 +9,7 @@ module.exports = function(app){
     app.get("/noticias/:id", controller.obterNoticia);
 
     // checar se o token é valido
-    app.use("/noticias", auth_controller.checar_token);
+    //app.use("/noticias", auth_controller.checar_token);
 
     //criar nova noticia
     app.post("/noticias", controller.inserirNoticia);

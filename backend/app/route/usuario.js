@@ -7,7 +7,7 @@ module.exports = function(app){
     app.get("/usuarios/login", auth_controller.login);
 
     // checar se o token é valido
-    app.use("/usuarios", auth_controller.checar_token);
+    //app.use("/usuarios", auth_controller.checar_token);
 
     //obter todos os usuarios
     app.get("/usuarios", controller.obterUsuarios);

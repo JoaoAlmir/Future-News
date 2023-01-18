@@ -8,8 +8,11 @@ module.exports = function(app){
     //obter o comentario pelo id
     app.get("/comentarios/:id", controller.obterComentario);
 
+    //obter o comentario pelo id
+    app.get("/comentarios/post/:id", controller.obterComentarioDoPost);
+
     // checar se o token é valido
-    app.use("/comentarios", auth_controller.checar_token);
+    //app.use("/comentarios", auth_controller.checar_token);
 
     //criar novo comentario
     app.post("/comentarios", controller.inserirComentario);

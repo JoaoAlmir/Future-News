@@ -33,6 +33,25 @@ module.exports.obterComentario = function (req, res) {
     )
 }
 
+module.exports.obterComentarioDoPost = function (req, res) {
+    let id = req.params.id
+
+    let promise = Comentario.find({id_noticia:id}).exec();
+
+
+
+    promise.then(
+        function (comentario) {
+            res.status(200).json(comentario);
+        }
+    ).catch(
+        function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
+    )
+}
+
 module.exports.inserirComentario = function (req, res) {
 
     let user = req.body;
