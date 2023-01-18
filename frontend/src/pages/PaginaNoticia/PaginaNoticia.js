@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { enviarComentario, verComentarios, verNoticia } from "../../api/axios";
+import { enviarComentario, verComentariosPost, verNoticia, verUsuario } from "../../api/axios";
 import { Comentario } from "../../components/Comentario/Comentario";
 import { Header } from "../../components/Header/Header";
 import "./PaginaNoticia.css"
@@ -28,13 +28,14 @@ export function PaginaNoticia() {
 
     const [noticia, setNoticia] = useState([]);
     const [comentario, setComentario] = useState([]);
+    const [nome, setNome] = useState([]);
+
 
 
     let id = useParams().id;
 
-
+    //ver dados da noticia
     useEffect(() => {
-
 
         verNoticia(id).then(
             (response) => {
@@ -44,23 +45,47 @@ export function PaginaNoticia() {
             (error) => {
                 console.log(error);
             }
+        )   
+
+    }, [id]);
+ 
+    //ver comentarios do post
+    useEffect(() => {
+        verComentariosPost(id).then(
+            (response) => {
+                setComentario(response.data)
+            }
+        ).catch(
+            (error) => {
+                console.log(error);
+            }
         )
-
-        // verComentarios(id).then(
-        //     (response) => {
-        //         setComentario(response.data)
-        //     }
-        // ).catch(
-        //     (error) => {
-        //         console.log(error);
-        //     }
-        // )
-
     }, [id]);
 
 
+   
+    // useEffect(() => {
+    //     verUsuario().then(
+    //         (response) => {
+    //             setNome(response.data)
+    //         }
+    //     ).catch(
+    //         (error) => {
+    //             console.log(error);
+    //         }
+    //     )
+    // }, [nome]);
+
+
+    // console.log(nome);
+
     
-    
+
+    let lista = comentario.map((i, index) => (
+        <Comentario nome={i.id_usuario} coment={i.texto} key={index} ></Comentario>
+    ))
+
+
 
 
     return (
@@ -69,13 +94,14 @@ export function PaginaNoticia() {
             <div id="noticia">
 
                 <h1>{noticia.titulo}</h1>
-                <br /><br />
+                <br/><br/>
                 <h3 className="quebra-linha" >{noticia.conteudo}</h3>
 
                 {Formulario()}
 
+                {/* {listaNome} */}
+                {lista}
 
-            {/* <Comentario titulo="pablo" conteudo="blabalblablalba balbalba" ></Comentario>                 */}
 
             </div>
 

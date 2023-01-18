@@ -1,11 +1,11 @@
 import "./Comentario.css"
 
-export function Comentario(nome, coment) {
+export function Comentario(prop) {
     return (
-        <div id="comentario">
-            <h3>{nome}</h3>
+        <div className="comentario">
+            <h2>{prop.nome}</h2>
             <br/>
-            <h4>{coment}</h4>
+            <h4>{prop.coment}</h4>
         </div>
     )
 }

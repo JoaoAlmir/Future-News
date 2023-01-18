@@ -16,10 +16,18 @@ export function verNoticias() {
     )
 }
 
-export function verComentarios(id) {
+export function verUsuario(id) {
     return (axios({
         method: 'GET',
-        url: "http://localhost:9999/comentarios/" + id,
+        url: "http://localhost:9999/usuarios/" + id,
+    })
+    )
+}
+
+export function verComentariosPost(id) {
+    return (axios({
+        method: 'GET',
+        url: "http://localhost:9999/comentarios/post/" + id,
     })
     )
 }
