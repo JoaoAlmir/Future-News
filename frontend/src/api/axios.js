@@ -24,6 +24,15 @@ export function verUsuario(id) {
     )
 }
 
+export function enviarUsuario(nome, email, senha, funcao) {
+    return (axios({
+        method: 'POST',
+        url: "http://localhost:9999/usuarios",
+        data: { nome: nome, email: email,senha:senha, funcao:funcao }
+    })
+    )
+}
+
 export function verComentariosPost(id) {
     return (axios({
         method: 'GET',
@@ -36,7 +45,7 @@ export function enviarNoticia(titulo, conteudo) {
     return (axios({
         method: 'POST',
         url: "http://localhost:9999/noticias",
-        data: { titulo: titulo, cpnteudo: conteudo }
+        data: { titulo: titulo, conteudo: conteudo }
     })
     )
 }
