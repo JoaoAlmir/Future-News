@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { enviarComentario, verComentariosPost, verNoticia, verUsuario } from "../../api/axios";
+import { enviarComentario, verComentariosPost, verNoticia} from "../../api/axios";
 import { Comentario } from "../../components/Comentario/Comentario";
 import { Header } from "../../components/Header/Header";
 import "./PaginaNoticia.css"
 
 
 
-function Formulario() {
+function Formulario(id) {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        enviarComentario(data.nome, data.conteudo).then((response) => {
-
+        console.log(id);
+        enviarComentario(data.texto,id,"usuario").then((response) => {
+            window.location.reload();
         }).catch((error) => console.log(error))
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input className="input-ntc" placeholder="Escreva um comentário"  {...register("titulo")} />
+            <input className="input-ntc" placeholder="Escreva um comentário"  {...register("texto")} />
             <input className="submit-ntc" type="submit" />
         </form>
     )
@@ -26,13 +27,13 @@ function Formulario() {
 
 export function PaginaNoticia() {
 
+    let id = useParams().id;
+
     const [noticia, setNoticia] = useState([]);
     const [comentario, setComentario] = useState([]);
-    const [nome, setNome] = useState([]);
 
 
-
-    let id = useParams().id;
+    
 
     //ver dados da noticia
     useEffect(() => {
@@ -65,16 +66,16 @@ export function PaginaNoticia() {
 
    
     // useEffect(() => {
-    //     verUsuario().then(
+    //     verUsuario(comentario).then(
     //         (response) => {
-    //             setNome(response.data)
+    //             setNome(response.data.id_usuario)
     //         }
     //     ).catch(
     //         (error) => {
     //             console.log(error);
     //         }
     //     )
-    // }, [nome]);
+    // }, [comentario]);
 
 
     // console.log(nome);
@@ -97,8 +98,8 @@ export function PaginaNoticia() {
                 <br/><br/>
                 <h3 className="quebra-linha" >{noticia.conteudo}</h3>
 
-                {Formulario()}
-
+                {Formulario(id)}
+    
                 {/* {listaNome} */}
                 {lista}
 

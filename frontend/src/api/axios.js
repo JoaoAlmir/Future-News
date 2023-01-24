@@ -50,11 +50,11 @@ export function enviarNoticia(titulo, conteudo) {
     )
 }
 
-export function enviarComentario(titulo, conteudo) {
+export function enviarComentario(texto, id_noticia ,id_usuario) {
     return (axios({
         method: 'POST',
         url: "http://localhost:9999/comentarios",
-        data: { titulo: titulo, cpnteudo: conteudo }
+        data: { texto: texto, id_noticia: id_noticia, id_usuario: id_usuario  }
     })
     )
 }
