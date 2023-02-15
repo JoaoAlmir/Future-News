@@ -3,8 +3,7 @@ const auth_controller = require("../controller/auth");
 
 
 module.exports = function(app){
-    //login para obter token
-    app.get("/usuarios/login", auth_controller.login);
+    
 
     // checar se o token é valido
     //app.use("/usuarios", auth_controller.checar_token);
@@ -20,6 +19,9 @@ module.exports = function(app){
 
     //criar novo usuario
     app.post("/usuarios",controller.inserirUsuario);
+    
+    //login para obter token
+    app.post("/usuarios/login", auth_controller.login);
 
     //remover usuario por id
     app.delete("/usuarios/:id", controller.removerUsuario);

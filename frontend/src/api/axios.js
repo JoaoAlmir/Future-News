@@ -58,3 +58,12 @@ export function enviarComentario(texto, id_noticia ,id_usuario) {
     })
     )
 }
+
+export function enviarLogin(email, senha) {
+    return (axios({
+        method: 'POST',
+        url: "http://localhost:9999/usuarios/login",
+        data: { email: email, senha: senha }
+    })
+    )
+}

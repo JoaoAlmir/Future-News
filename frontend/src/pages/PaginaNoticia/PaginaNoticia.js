@@ -8,19 +8,49 @@ import "./PaginaNoticia.css"
 
 
 
-function Formulario(id) {
+function Coment(id) {
+
+    const [comentario, setComentario] = useState([]);
+    
+    
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         console.log(id);
         enviarComentario(data.texto,id,"usuario").then((response) => {
-            window.location.reload();
         }).catch((error) => console.log(error))
+        window.location.reload(false);
     };
+
+    //ver comentarios do post
+    useEffect(() => {
+        verComentariosPost(id).then(
+            (response) => {
+                setComentario(response.data)
+            }
+        ).catch(
+            (error) => {
+                console.log(error);
+            }
+        )
+    }, [id]);
+
+    let listaTemp = comentario.map((i, index) => (
+        <Comentario nome={i.id_usuario} coment={i.texto} key={index} ></Comentario>
+    ))
+    
+    const [listaComent, setListaComent] = useState(listaTemp);   
+
+    
+
+    //console.log(listaComent);
+
+
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <input className="input-ntc" placeholder="Escreva um comentário"  {...register("texto")} />
             <input className="submit-ntc" type="submit" />
+            {listaTemp}
         </form>
     )
 }
@@ -30,10 +60,8 @@ export function PaginaNoticia() {
     let id = useParams().id;
 
     const [noticia, setNoticia] = useState([]);
-    const [comentario, setComentario] = useState([]);
-
-
     
+
 
     //ver dados da noticia
     useEffect(() => {
@@ -50,43 +78,7 @@ export function PaginaNoticia() {
 
     }, [id]);
  
-    //ver comentarios do post
-    useEffect(() => {
-        verComentariosPost(id).then(
-            (response) => {
-                setComentario(response.data)
-            }
-        ).catch(
-            (error) => {
-                console.log(error);
-            }
-        )
-    }, [id]);
-
-
-   
-    // useEffect(() => {
-    //     verUsuario(comentario).then(
-    //         (response) => {
-    //             setNome(response.data.id_usuario)
-    //         }
-    //     ).catch(
-    //         (error) => {
-    //             console.log(error);
-    //         }
-    //     )
-    // }, [comentario]);
-
-
-    // console.log(nome);
-
     
-
-    let lista = comentario.map((i, index) => (
-        <Comentario nome={i.id_usuario} coment={i.texto} key={index} ></Comentario>
-    ))
-
-
 
 
     return (
@@ -98,10 +90,8 @@ export function PaginaNoticia() {
                 <br/><br/>
                 <h3 className="quebra-linha" >{noticia.conteudo}</h3>
 
-                {Formulario(id)}
+                {Coment(id)}
     
-                {/* {listaNome} */}
-                {lista}
 
 
             </div>

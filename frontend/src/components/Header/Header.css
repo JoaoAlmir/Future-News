@@ -78,21 +78,24 @@
 }
 
 .conta{
+    user-select: none;
     display: none;
 }
 
-.conta.active{
+.conta.on{
     display: inline;
     margin-left: 1vw;
     font-size: 1vw;
 }
 
 .sair{
+    user-select: none;
     display: none;
 }
 
-.sair.active{
+.sair.on{
     display: inline;
     margin-left: 1vw;
+    margin-right: 3vw;
     font-size: 1vw;
 }
