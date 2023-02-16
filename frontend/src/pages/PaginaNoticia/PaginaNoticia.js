@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { enviarComentario, verComentariosPost, verNoticia} from "../../api/axios";
+import { AuthContext } from "../../App";
 import { Comentario } from "../../components/Comentario/Comentario";
 import { Header } from "../../components/Header/Header";
 import "./PaginaNoticia.css"
@@ -11,13 +13,14 @@ import "./PaginaNoticia.css"
 function Coment(id) {
 
     const [comentario, setComentario] = useState([]);
-    
+    const auth = useContext(AuthContext);
+
     
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         console.log(id);
-        enviarComentario(data.texto,id,"usuario").then((response) => {
+        enviarComentario(data.texto,id,auth.nome).then((response) => {
         }).catch((error) => console.log(error))
         window.location.reload(false);
     };
@@ -39,7 +42,7 @@ function Coment(id) {
         <Comentario nome={i.id_usuario} coment={i.texto} key={index} ></Comentario>
     ))
     
-    const [listaComent, setListaComent] = useState(listaTemp);   
+    //const [listaComent, setListaComent] = useState(listaTemp);   
 
     
 
