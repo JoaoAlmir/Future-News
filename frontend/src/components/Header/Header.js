@@ -17,14 +17,15 @@ export function Header() {
     let conta = document.getElementById("conta")
     let sair = document.getElementById("sair")
 
-
-    if(auth.token == undefined && login != undefined){
+// eslint-disable-next-line
+    if(auth.token === undefined && login != undefined){
         login.classList.add("on")
         cadastro.classList.add("on")
         conta.classList.remove("on")
         sair.classList.remove("on")
     }
-    else if(auth.token != undefined && login != undefined){
+// eslint-disable-next-line
+    else if(auth.token !== undefined && login != undefined){
         login.classList.remove("on")
         cadastro.classList.remove("on") 
         conta.classList.add("on")

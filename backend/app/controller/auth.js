@@ -12,7 +12,7 @@ module.exports.login = function (req, res) {
         function (user) {
             if (bcrypt.compareSync(info_login.senha, user.senha)) {
                 let token = jwt.sign({id:user._id,funcao:user.funcao},"senhasecreta")
-                res.status(200).json({token:token, nome:user.nome});
+                res.status(200).json({token:token, nome:user.nome, funcao:user.funcao});
             }
             else {
                 res.status(401).send("login falhou");

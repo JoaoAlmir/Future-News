@@ -16,6 +16,7 @@ function Formulario() {
         enviarLogin(data.email, data.senha).then((response)=>{
         auth.setToken(response.data.token)
         auth.setNome(response.data.nome)
+        auth.setFuncao(response.data.funcao)
         nav("/")
 
         }).catch((error)=>console.log(error))

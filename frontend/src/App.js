@@ -16,11 +16,13 @@ function App() {
 
   const [token, setToken] = useState()
   const [nome, setNome] = useState()
+  const [funcao, setFuncao] = useState()
+  
 
   return (
     <div className="App">
       <CustomMouse />
-      <AuthContext.Provider value={{token:token, setToken:setToken, nome:nome, setNome:setNome}}>
+      <AuthContext.Provider value={{token:token, setToken:setToken, nome:nome, setNome:setNome, funcao:funcao, setFuncao:setFuncao}}>
         <BrowserRouter>
           <Routes>
 
