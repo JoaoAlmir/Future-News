@@ -24,7 +24,7 @@ function Formulario() {
     return (
         <form id="form-criar"  onSubmit={handleSubmit(onSubmit)} >
             <input className="input-login" type='text' placeholder="Email" {...register("email")} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault() }} />
-            <input className="input-login" type='text' placeholder="Senha" {...register("senha")} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault() }}/>
+            <input className="input-login" type='password' placeholder="Senha" {...register("senha")} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault() }}/>
             <input className="submit-login" value="Logar" type="submit"/>
         </form>
     )

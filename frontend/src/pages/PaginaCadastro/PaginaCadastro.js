@@ -19,7 +19,7 @@ function Formulario() {
 
             <input className="input-cadastro" type='text' placeholder="Nome" {...register("nome")} />
             <input className="input-cadastro" type='text' placeholder="Email" {...register("email")}/>
-            <input className="input-cadastro" type='text' placeholder="Senha" {...register("senha")}/>
+            <input className="input-cadastro" type='password' placeholder="Senha" {...register("senha")}/>
 
             <input className="submit-cadastro" value="Cadastrar" type="submit"/>
 
